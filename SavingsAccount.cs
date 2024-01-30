@@ -26,7 +26,7 @@ namespace List_objectives_StephanieLopez
             if (base.Deposit(amount))
             {
                 // If deposit is successful, add interest
-                balance += (balance * interest);
+                Balance += (Balance * interest);
                 return true;
             }
             else

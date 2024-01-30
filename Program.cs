@@ -35,15 +35,10 @@ namespace List_objectives_StephanieLopez
                 account.Withdraw(-200000);
             }
 
-            foreach (var account in accounts)
-            {
-                account.Withdraw(2000);
-            }
-
             //Displaying results!
             foreach (var account in accounts)
             {
-                Console.WriteLine(account);
+                Console.WriteLine(accounts);
             }
         }
     }
