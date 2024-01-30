@@ -12,8 +12,33 @@ namespace List_objectives_StephanieLopez
         double interest_;
 
         //Constructor
+        public SavingsAccount(string Name, double balance, double interest)
+        {
+            this.interest_ = interest;
+        }
 
+        //Property
+        public double interest { get => interest; set => interest = value; }
 
-        //Properties
+        //Method
+        public override bool Deposit(double amount)
+        {
+            if (base.Deposit(amount))
+            {
+                // If deposit is successful, add interest
+                balance += (balance * interest);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Override ToString
+        public override string ToString()
+        {
+            return $"{base.ToString()} - Interest: {interest:P}";
+        }
     }
 }

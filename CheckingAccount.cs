@@ -9,13 +9,34 @@ namespace List_objectives_StephanieLopez
     internal class CheckingAccount
     {
         //Field
-        double overdraft_;
+        private double overdraftfee;
 
         //Constructor
+        public CheckingAccount(string Name, double balance, double OverDraftFee)
+        {
+            this.overdraftfee = OverDraftFee;
+        }
+
+        //Property
+        public double Overdraftfee { get => overdraftfee; set => overdraftfee = value; }
+
+        //Method
+        public override bool Withdraw(double amount)
+        {
+            if (!base.Withdraw(amount))
+            {
+                // Withdraw failed, deduct overdraft fee
+                base.Withdraw(overdraftfee);
+            }
+            return true;
+        }
 
 
-        //Properties
-
+        //Override ToString
+        public override string ToString()
+        {
+            return $"{base.ToString()} - Overdraft Fee: {overdraftfee:C}";
+        }
 
     }
 }
