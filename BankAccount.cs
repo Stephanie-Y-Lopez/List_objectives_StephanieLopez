@@ -9,43 +9,31 @@ namespace List_objectives_StephanieLopez
 {
     internal class BankAccount
     {
-        //Fields
-        static Random random_ = new Random(); //Used for account Number
+        // Fields
+        private static readonly Random random_ = new Random(); // Used for account Number
         private string name_;
         private int accountnumber_;
-        private double balance;
+        private double balance_;
 
-        //Constructor
-        public BankAccount(string Name, int AccountNumber, int balance)
+        // Constructor
+        public BankAccount(string Name, double Balance)
         {
-            this.Name_ = Name;
-            this.accountnumber_ = random_.Next(100000, 999999); //This will generate a 6 digit random account number for the account!
-            this.balance = balance;
+            name_ = Name;
+            balance_ = Balance;
+            accountnumber_ = random_.Next(100000, 999999); // Generates a random 6-digit account number
         }
 
-        //Properties
+        // Properties
         public string Name_ { get => name_; set => name_ = value; }
-        public int AccountNumber { get => accountnumber_;}
-        public double Balance { get => balance;}
+        public int AccountNumber { get => accountnumber_; }
+        public double Balance { get => balance_; }
 
-        //Methods
+        // Methods
         public virtual bool Deposit(double amount)
         {
-            if(amount > 0)
+            if (amount > 0)
             {
-                balance += amount;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public virtual bool Withdraw(double amount)
-        {
-            if (amount > 0 && balance >= amount)
-            {
-                balance -= amount;
+                balance_ += amount;
                 return true;
             }
             else
@@ -54,10 +42,23 @@ namespace List_objectives_StephanieLopez
             }
         }
 
-        //Override ToString
+        public virtual bool Withdraw(double amount)
+        {
+            if (amount > 0 && balance_ >= amount)
+            {
+                balance_ -= amount;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // Override ToString
         public override string ToString()
         {
-            return $"{this.GetType().Name} - {Name_} - Account Number: {AccountNumber} - Balance: {balance:C}";
+            return $"{this.GetType().Name} - {Name_} - Account Number: {AccountNumber} - Balance: {balance_:C}";
         }
     }
 }

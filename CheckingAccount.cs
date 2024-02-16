@@ -6,37 +6,32 @@ using System.Threading.Tasks;
 
 namespace List_objectives_StephanieLopez
 {
-    internal class CheckingAccount
+    internal class CheckingAccount : BankAccount
     {
-        //Field
-        private double overdraftfee;
+        // Field
+        public double overdraftfee { get; set; }
 
-        //Constructor
-        public CheckingAccount(string Name, double balance, double OverDraftFee)
+        // Constructor
+        public CheckingAccount(string Name, double Balance, double OverDraftFee) : base(Name, Balance)
         {
-            this.overdraftfee = OverDraftFee;
+            overdraftfee = OverDraftFee;
         }
 
-        //Property
-        public double Overdraftfee { get => overdraftfee; set => overdraftfee = value; }
-
-        //Method
+        // Method
         public override bool Withdraw(double amount)
         {
-            if (!base.Withdraw(amount))
+            bool success = base.Withdraw(amount);
+            if (!success)
             {
-                // Withdraw failed, deduct overdraft fee
-                base.Withdraw(overdraftfee);
+                Balance -= overdraftfee; // Corrected to use the property instead of field
             }
-            return true;
+            return success;
         }
 
-
-        //Override ToString
+        // Override ToString
         public override string ToString()
         {
-            return $"{base.ToString()} - Overdraft Fee: {overdraftfee:C}";
+            return base.ToString() + $" - Overdraft Fee: {overdraftfee:C}"; // Corrected to use the property instead of field
         }
-
     }
 }

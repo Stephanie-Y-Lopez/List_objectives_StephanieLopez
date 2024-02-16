@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace List_objectives_StephanieLopez
 {
-    internal class RetirementAccount
+    internal class RetirementAccount : SavingsAccount
     {
-        public RetirementAccount(string v1, int v2, double v3)
+        public RetirementAccount(string Name, double Balance, double interest) : base(Name, Balance, interest) // Corrected variable names
         {
         }
 
-        //Method
+        // Method
         public new bool Withdraw(double amount)
         {
             Console.WriteLine("Cannot withdraw from a retirement account");
