@@ -21,9 +21,9 @@ namespace List_objectives_StephanieLopez
         public override bool Withdraw(double amount)
         {
             bool success = base.Withdraw(amount);
-            if (!success)
+            if (success)
             {
-                Balance -= overdraftfee; // Corrected to use the property instead of field
+                balance_ -= overdraftfee;
             }
             return success;
         }
@@ -31,7 +31,7 @@ namespace List_objectives_StephanieLopez
         // Override ToString
         public override string ToString()
         {
-            return base.ToString() + $" - Overdraft Fee: {overdraftfee:C}"; // Corrected to use the property instead of field
+            return base.ToString() + $" - Overdraft Fee: {overdraftfee:C}";
         }
     }
 }

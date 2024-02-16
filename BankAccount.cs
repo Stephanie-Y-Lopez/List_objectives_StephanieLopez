@@ -11,9 +11,9 @@ namespace List_objectives_StephanieLopez
     {
         // Fields
         private static readonly Random random_ = new Random(); // Used for account Number
-        private string name_;
-        private int accountnumber_;
-        private double balance_;
+        public string name_;
+        public int accountnumber_;
+        public double balance_;
 
         // Constructor
         public BankAccount(string Name, double Balance)

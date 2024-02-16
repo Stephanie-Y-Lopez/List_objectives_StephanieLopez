@@ -12,13 +12,13 @@ namespace List_objectives_StephanieLopez
         public double interest_ { set; get; }
 
         // Constructor
-        public SavingsAccount(string name, double balance, double interest) : base(name, balance)
+        public SavingsAccount(string Name, double Balance, double interest) : base(Name, Balance)
         {
-            interest_ = interest; // Corrected variable names
+            interest_ = interest;
         }
 
         // Property
-        public double Interest { get => interest_; set => interest_ = value; } // Corrected variable names
+        public double Interest { get => interest_; set => interest_ = value; }
 
         // Method
         public override bool Deposit(double amount)
@@ -26,7 +26,7 @@ namespace List_objectives_StephanieLopez
             if (base.Deposit(amount))
             {
                 // If deposit is successful, add interest
-                Balance += (Balance * Interest); // Corrected variable names
+                balance_ += (balance_ * Interest);
                 return true;
             }
             else
@@ -38,7 +38,7 @@ namespace List_objectives_StephanieLopez
         // Override ToString
         public override string ToString()
         {
-            return $"{base.ToString()} - Interest: {Interest:P}"; // Corrected variable names
+            return $"{base.ToString()} - Interest: {Interest:P}";
         }
     }
 }

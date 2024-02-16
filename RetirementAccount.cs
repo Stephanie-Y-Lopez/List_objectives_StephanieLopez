@@ -8,7 +8,7 @@ namespace List_objectives_StephanieLopez
 {
     internal class RetirementAccount : SavingsAccount
     {
-        public RetirementAccount(string Name, double Balance, double interest) : base(Name, Balance, interest) // Corrected variable names
+        public RetirementAccount(string Name, double Balance, double interest) : base(Name, Balance, interest) 
         {
         }
 
